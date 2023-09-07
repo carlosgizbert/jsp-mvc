@@ -33,21 +33,10 @@ public class FiltroAuditoria implements Filter {
 		chain.doFilter(request, response);
 	}
 
-	private String getUsuario(HttpServletRequest req) {
-		Cookie[] cookies = req.getCookies();
-		String usuario = "<deslogado>";
-		
-		if (cookies == null) {
-			return usuario;
-		}
-		
-		
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("usuario.logado")) {
-				usuario = cookie.getValue();
-			}
-		}
-		return usuario;
+	private String getUsuario(HttpServletRequest req) {		
+		Cookie cookie = new Cookies(req.getCookies()).buscaUsuarioLogado();
+		if(cookie == null) return "<deslogado>";
+		return cookie.getValue();
 	}
 
 	@Override

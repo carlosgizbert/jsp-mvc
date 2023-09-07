@@ -30,6 +30,8 @@ public class Login extends HttpServlet {
 			writer.println("<html><body>Usuario inválido<body/></html>");
 		} else {
 			Cookie cookie = new Cookie("usuario.logado", email);
+			cookie.setMaxAge(10 * 60);
+			
 			resp.addCookie(cookie);
 			
 			

@@ -26,6 +26,8 @@ public class FiltroAuditoria implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
 		System.out.println("Usuário acessando a URI: " + uri);
+		
+		chain.doFilter(request, response);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 # jsp-mvc
-Criando MVC na unha com Java e JSP
+Criando MVC com Java, Servlets e JSP
 
 ## Implementado
 - Cadastro de empresas

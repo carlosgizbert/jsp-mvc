@@ -2,6 +2,8 @@ package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +18,8 @@ import br.com.alura.gerenciador.dao.UsuarioDAO;
 @WebServlet(urlPatterns = "/login")
 public class Login extends HttpServlet {
 	
+	final static Map<String, String> USUARIOS_LOGADOS = new HashMap<>();
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -29,7 +33,12 @@ public class Login extends HttpServlet {
 		if (usuario == null) {
 			writer.println("<html><body>Usuario inválido<body/></html>");
 		} else {
+			String codigoAleatorio = "" + System.currentTimeMillis() + "/" + Math.random();
+			
 			Cookie cookie = new Cookie("usuario.logado", email);
+			
+			USUARIOS_LOGADOS.put(codigoAleatorio, email);
+			
 			cookie.setMaxAge(10 * 60);
 			
 			resp.addCookie(cookie);

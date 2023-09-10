@@ -29,7 +29,6 @@ public class Logout extends HttpServlet{
 			writer.println("<html><body>Usuário deslogado com sucesso!</body></html>");
 		}
 		
-		
 	}
 
 }

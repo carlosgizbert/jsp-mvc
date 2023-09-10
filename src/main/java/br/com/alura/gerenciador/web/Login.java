@@ -38,7 +38,5 @@ public class Login extends HttpServlet {
 			session.setAttribute("usuarioLogado", usuario);
 			writer.println("<html><body>Usuario logado: '' <body/></html>");
 		}
-		
 	}
-	
 }

@@ -1,0 +1,33 @@
+# Arquivos de compilação Java
+*.class
+
+# Arquivos gerados pelo IDE (exemplos para IntelliJ IDEA e Eclipse)
+.idea/
+.classpath
+.project
+
+# Diretório de saída de compilação (geralmente chamado de "target" ou "out")
+target/
+out/
+
+# Logs e arquivos temporários
+*.log
+*.swp
+
+# Arquivos de configuração específicos do IDE
+*.iml
+*.ipr
+*.iws
+
+# Arquivos de configuração do Maven (se você estiver usando o Maven)
+target/
+.mvn/
+
+# Dependências geradas pelo Maven
+lib/
+
+# Arquivos de configuração do Eclipse (se você estiver usando o Eclipse)
+.settings/
+
+# Dependências geradas pelo Eclipse
+.metadata/

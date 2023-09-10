@@ -18,7 +18,7 @@ import br.com.alura.gerenciador.dao.UsuarioDAO;
 @WebServlet(urlPatterns = "/login")
 public class Login extends HttpServlet {
 	
-	final static Map<String, String> USUARIOS_LOGADOS = new HashMap<>();
+	final static Map<String, Usuario> USUARIOS_LOGADOS = new HashMap<>();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -37,12 +37,11 @@ public class Login extends HttpServlet {
 			
 			Cookie cookie = new Cookie("usuario.logado", email);
 			
-			USUARIOS_LOGADOS.put(codigoAleatorio, email);
+			USUARIOS_LOGADOS.put(codigoAleatorio, usuario);
 			
 			cookie.setMaxAge(10 * 60);
 			
 			resp.addCookie(cookie);
-			
 			
 			writer.println("<html><body>Usuario logado: '' <body/></html>");
 		}
